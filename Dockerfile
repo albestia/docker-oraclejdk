@@ -4,7 +4,7 @@ MAINTAINER Albert Murillo <albertmurilloaguirre@gmail.com>
 # Install git, download and extract Bitbucket Server and create the required directory layout.
 # Try to limit the number of RUN instructions to minimise the number of layers that will need to be created.
 RUN apt-get update -qq \
-    && apt-get install -y --no-install-recommends libtcnative-1 ca-certificates wget curl \
+    && apt-get install -y --no-install-recommends libtcnative-1 ca-certificates wget curl unzip \
     && wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/1.2/gosu-$(dpkg --print-architecture)" \
     && chmod +x /usr/local/bin/gosu \
     && apt-get clean autoclean \
