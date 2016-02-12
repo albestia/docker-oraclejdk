@@ -11,6 +11,9 @@ RUN apt-get update -qq \
     && apt-get autoremove --yes \
     && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
+# Link libraries to a place where any tomcat installation will find it
+RUN ln -s /usr/lib/x86_64-linux-gnu/libtcnative-1.* /usr/lib/
+
 ENV JAVA_HOME           /opt/java
 ENV JAVA_URL            http://download.oracle.com/otn-pub/java/jdk/8u71-b15/jdk-8u71-linux-x64.tar.gz
 RUN mkdir -p ${JAVA_HOME} \
